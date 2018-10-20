@@ -14,7 +14,9 @@ public class ApplicationWebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/graphiql").setViewName(
                 "forward:/graphiql/index.html");
-    }
+        registry.addViewController("/index"); // renvoie vers les JSP
+   }
+
     
     
     @Bean

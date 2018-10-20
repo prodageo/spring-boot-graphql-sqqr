@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@EnableWebMvc // from baeldung
 @Configuration
 public class ApplicationWebConfig implements WebMvcConfigurer {
 
@@ -14,7 +15,7 @@ public class ApplicationWebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/graphiql").setViewName(
                 "forward:/graphiql/index.html");
-        registry.addViewController("/index"); // renvoie vers les JSP
+        registry.addViewController("/index").setViewName("index"); // renvoie vers les JSP
    }
 
     

@@ -1,6 +1,7 @@
 package com.igu.developer.demo;
 
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -15,6 +16,16 @@ public class ApplicationWebConfig implements WebMvcConfigurer {
                 "forward:/graphiql/index.html");
     }
     
+    
+    @Bean
+    public ViewResolver viewResolver() {
+        final InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/WEB-INF/view/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
+    
+/*
    @Bean
    public ViewResolver viewResolver() {
       InternalResourceViewResolver bean = new InternalResourceViewResolver();
@@ -25,5 +36,6 @@ public class ApplicationWebConfig implements WebMvcConfigurer {
       bean.setSuffix(".jsp");
  
       return bean;
-   }    
+   }
+*/
 }

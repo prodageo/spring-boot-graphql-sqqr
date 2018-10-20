@@ -12,4 +12,15 @@ public class ApplicationWebConfig implements WebMvcConfigurer {
         registry.addViewController("/graphiql").setViewName(
                 "forward:/graphiql/index.html");
     }
+    
+   @Bean
+   public ViewResolver viewResolver() {
+      InternalResourceViewResolver bean = new InternalResourceViewResolver();
+ 
+      bean.setViewClass(JstlView.class);
+      bean.setPrefix("/WEB-INF/view/");
+      bean.setSuffix(".jsp");
+ 
+      return bean;
+   }    
 }
